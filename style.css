@@ -4,9 +4,13 @@
   padding: 0;
 }
 
+*:focus {
+  outline: none;
+}
+
 .image {
   width: 100%;
-  height: auto;
+  height: 35%;
   position: absolute;
   z-index: -1;
 }
@@ -22,12 +26,12 @@
 
 .searchbox {
   margin: auto;
-  width: 423px;
-  margin-bottom:100px;
+  width: 50%;
+  margin-bottom: 100px;
 }
 #search {
   padding: 5px;
-  padding-left: 10px;
+  padding-left: 0.5vw;
   border-style: solid;
   border-width: 8px;
   border-color: white;
@@ -36,17 +40,24 @@
   border-bottom-right-radius: 0px;
   background-color: white;
   height: 20px;
-  width: 350px;
-  color:hsl(0, 0%, 59%);
+  width: 80%;
+  color: hsl(0, 0%, 59%);
   text-align: left;
   display: inline-block;
-  font-size:18px;
+  font-size: 18px;
+  font-size: 1.25vw;
+}
+
+#search:hover {
+  box-shadow: 0 0 4px;
+  opacity: 0.9;
 }
 
 #arrow {
-  margin-bottom: -18px;
-  margin-left: -4px;
-  padding: 8px;
+  margin-bottom: -18.5px;
+  margin-left: -5px;
+  padding: 7.5px;
+  padding-top: 10px;
   border-style: solid;
   border-width: 5px;
   border-color: black;
@@ -57,17 +68,22 @@
   height: 20px;
 }
 
+#arrow:hover {
+  box-shadow: 0 0 4px rgba(3, 3, 3, 0.8);
+  opacity: 0.9;
+}
+
 .container {
   height: 500px;
   position: relative;
 }
 table {
-  float: left;
+  margin: auto;
+  max-height: 40px;
   margin-top: -75px;
   position: absolute;
-  max-width:1200px;
-  left:50%;
-  margin-left: -600px;
+  width: 75%;
+  margin-left: 12.5%;
   z-index: 1000;
   padding: 15px;
   background-color: white;
@@ -79,33 +95,35 @@ table {
 }
 table th {
   padding: 5px;
-  padding-left: 15px;
-  width: 250px;
+  padding-left: 2.5vw;
+  padding-right: 3vw;
+  width: 25%;
   text-align: left;
   text-transform: uppercase;
   font-size: 15px;
+  font-size: 1vw;
   color: hsl(0, 0%, 59%);
   font-weight: 500;
 }
 
 td {
   padding: 5px;
-  padding-left: 15px;
-  font-size: 25px;
+  padding-left: 2.5vw;
+  padding-right: 3vw;
+  font-size: 18px;
+  font-size: 1.75vw;
   font-weight: 700;
-  color:hsl(0, 0%, 17%);
+  color: hsl(0, 0%, 17%);
   text-align: left;
   border-right-style: solid;
   border-right-width: 2px;
-  border-right-color:hsl(0, 0%, 59%)
+  border-right-color: hsl(0, 0%, 59%);
 }
 
-#last {
+#my_isp {
   border-right-color: transparent;
 }
 
 #mapid {
   height: 500px;
 }
-
-
