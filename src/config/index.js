@@ -1,4 +1,4 @@
-require('dotenv').config()
+require('dotenv').config({ path: '../../.env' })
 
 const config = {
   api_key: String(process.env.IPIFY_KEY),
