@@ -9,9 +9,6 @@ module.exports = {
     filename: "[name].[contenthash].js",
     clean: true,
   },
-  node: {
-    fs: "empty",
-  },
   mode: "production",
   optimization: {
     moduleIds: "deterministic",
