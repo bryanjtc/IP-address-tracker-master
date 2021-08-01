@@ -70,7 +70,7 @@ module.exports = {
       chunkFilename: "[id].[contenthash].css",
     }),
     new Dotenv({
-      path: path.resolve(__dirname, ".env"),
+      path: path.resolve(process.cwd(), ".env"),
     }),
   ],
   performance: {
