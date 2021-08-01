@@ -1,5 +1,8 @@
-import './style.css';
-const api_key = String(process.env.IPIFY_KEY);
+import "./style.css";
+import "../node_modules/leaflet/dist/leaflet.css"
+import config from "./config/index";
+import iconUrl from "./assets/icon-location.svg"
+const { api_key } = config;
 const api_uri = "https://geo.ipify.org/api/";
 const bypass_cors_url = "https://cors-anywhere.herokuapp.com/";
 let current_version = "v1";
@@ -10,9 +13,10 @@ let current_location = document.getElementById("my_location");
 let current_timeZone = document.getElementById("my_timezone");
 let current_isp = document.getElementById("my_isp");
 var entered_ip = document.getElementById("search");
+var L = require('leaflet');
 
 var blackIcon = L.icon({
-  iconUrl: "./images/icon-location.svg",
+  iconUrl: iconUrl,
 });
 
 const headers_option = {
@@ -32,12 +36,12 @@ const map = L.map("mapid", {
   ],
 });
 
-updateMarker = (updateMarker = [50.5, 30.5]) => {
+const updateMarker = (updateMarker = [50.5, 30.5]) => {
   map.setView(updateMarker, 13);
   L.marker(updateMarker, { icon: blackIcon }).addTo(map);
 };
 
-getIPDetails = (default_ip) => {
+const getIPDetails = (default_ip) => {
   if (default_ip == undefined) {
     var ip_url = `${bypass_cors_url}${api_uri}${current_version}?apiKey=${api_key}`;
   } else {

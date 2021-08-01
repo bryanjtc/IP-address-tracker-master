@@ -27,6 +27,7 @@
     "dotenv-webpack": "^7.0.3",
     "html-loader": "^2.1.2",
     "html-webpack-plugin": "^5.3.2",
+    "leaflet": "^1.7.1",
     "mini-css-extract-plugin": "^2.1.0",
     "style-loader": "^3.2.1",
     "webpack": "^5.47.1",

@@ -4,12 +4,6 @@
 <head>
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-    crossorigin="" />
-  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-    crossorigin=""></script>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -19,39 +13,44 @@
 </head>
 
 <body>
-  <img src="./images/pattern-bg.png" class="image" />
-  <div class="title">IP Address Tracker</div>
-  <div class="searchbox">
-    <form id="searchinput">
-      <input type=text id="search" onfocus="this.value=''" value="Search for an IP address or domain" />
-      <input type="image" src="./images/icon-arrow.svg" id="arrow" />
-    </form>
-  </div>
-  <br />
-  <div class="table">
-    <div class="column">
-      <p class="column-header">IP Address</p>
-      <p class="column-cell" id="my_ipAddress"></p>
+  <div id="App">
+    <img src="./images/pattern-bg.png" class="image" />
+    <div class="head">
+      <div class="title">IP Address Tracker</div>
+      <div class="searchbox">
+        <form id="searchinput">
+          <input type=text id="search" onfocus="this.value=''" value="Search for an IP address or domain" />
+          <input type="image" src="./images/icon-arrow.svg" id="arrow" />
+        </form>
+      </div>
     </div>
-    <div class="column">
-      <p class="column-header">Location</p>
-      <p class="column-cell" id="my_location"></p>
+    <div class="table">
+      <div class="column">
+        <p class="column-header">IP Address</p>
+        <p class="column-cell" id="my_ipAddress"></p>
+      </div>
+      <span class="divider"></span>
+      <div class="column">
+        <p class="column-header">Location</p>
+        <p class="column-cell" id="my_location"></p>
+      </div>
+      <span class="divider"></span>
+      <div class="column">
+        <p class="column-header">Timezone</p>
+        <p class="column-cell" id="my_timezone"></p>
+      </div>
+      <span class="divider"></span>
+      <div class="column">
+        <p class="column-header">ISP</p>
+        <p class="column-cell" id="my_isp"></p>
+      </div>
     </div>
-    <div class="column">
-      <p class="column-header">Timezone</p>
-      <p class="column-cell" id="my_timezone"></p>
+    <div id="mapid"></div>
     </div>
-    <div class="column">
-      <p class="column-header">ISP</p>
-      <p class="column-cell" id="my_isp"></p>
+    <div class="attribution">
+      Coded by <a
+        href="https://github.com/bryan250000">Bryan Thomas</a>.
     </div>
-  </div>
-  <div id="mapid"></div>
-  </div>
-  <div class="attribution">
-    Challenge by
-    <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a
-      href="https://github.com/bryan250000">Bryan Thomas</a>.
   </div>
 </body>
 <script type="module" src="../src/index.js"></script>

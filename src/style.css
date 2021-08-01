@@ -8,11 +8,31 @@
   outline: none;
 }
 
+#App {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 25vh 10vh 10vh 60vh 1vh;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
 .image {
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 1;
+  grid-column-end: 1;
   width: 100%;
   height: 35%;
   position: absolute;
-  z-index: -1;
+}
+
+.head {
+  grid-row-start: 1;
+  grid-row-end: 1;
+  grid-column-start: 1;
+  grid-column-end: 1;
+  width: 100%;
+  position: absolute;
 }
 
 .title {
@@ -27,14 +47,9 @@
 #searchinput {
   display: flex;
   justify-content: center;
-  width: 100%;
-  margin: 0 30%;
+  margin: 0 20%;
 }
 
-.searchbox {
-  width: 100%;
-  margin-bottom: 6.25rem;
-}
 #search {
   padding: 0.3125rem;
   padding-left: 0.5vw;
@@ -76,12 +91,14 @@
 
 .container {
   height: 31.25rem;
-  position: relative;
 }
 
 .table {
-  position: absolute;
-  padding: 0.9375rem;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 1;
+  grid-column-end: 1;
+  padding: 1.5rem;
   background-color: white;
   border-style: solid;
   border-width: 0.3125rem;
@@ -90,16 +107,19 @@
   box-shadow: 0 10px 10px -10px hsl(0, 0%, 59%);
   display: flex;
   flex-direction: row;
-  width: 100%;
   margin: 0 10%;
   justify-content: space-between;
   z-index: 1;
+  height: 100%;
+  column-gap: 1.25rem;
+}
+
+.divider {
+  border-right: 0.125rem solid hsl(0, 0%, 59%);
 }
 
 .column-header {
-  padding: 0.3125rem;
-  padding-left: 2.5vw;
-  padding-right: 3vw;
+  padding: 0.3125rem 0;
   text-align: left;
   text-transform: uppercase;
   font-size: 0.9375rem;
@@ -108,16 +128,11 @@
 }
 
 .column-cell {
-  padding: 0.3125rem;
-  padding-left: 2.5vw;
-  padding-right: 3vw;
-  font-size: 1.75vw;
+  padding: 0.3125rem 0;
   font-weight: 700;
   color: hsl(0, 0%, 17%);
   text-align: left;
-  border-right-style: solid;
-  border-right-width: 0.125rem;
-  border-right-color: hsl(0, 0%, 59%);
+  font-size: 1.625rem;
 }
 
 #my_isp {
@@ -125,16 +140,38 @@
 }
 
 #mapid {
+  grid-row-start: 3;
+  grid-row-end: 4;
+  grid-column-start: 1;
+  grid-column-end: 1;
   height: 500px;
+  z-index: 0;
+}
+
+.attribution {
+  grid-row-start: 5;
+  grid-row-end: 5;
 }
 
 @media screen and (max-width: 26.625rem) {
+  #App {
+    grid-template-rows: 25vh 10vh 35vh 35vh 1vh;
+  }
   .table {
     flex-direction: column;
+    width: -webkit-fill-available;
+    grid-row-end: 4;
+    align-items: center;
+  }
+
+  .column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .column-cell {
-    border: none;
+    text-align: center;
   }
 
   #searchinput {
