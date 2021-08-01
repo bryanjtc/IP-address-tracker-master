@@ -4,7 +4,7 @@ import config from "./config/index";
 import iconUrl from "./assets/icon-location.svg"
 const { api_key } = config;
 const api_uri = "https://geo.ipify.org/api/";
-const bypass_cors_url = "https://cors-anywhere.herokuapp.com/";
+const bypass_cors_url = "https://corsanywhere.herokuapp.com/";
 let current_version = "v1";
 
 const form = document.getElementById("searchinput");
