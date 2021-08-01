@@ -55,7 +55,7 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: 'asset/resource',
+        type: "asset/resource",
       },
     ],
   },
@@ -69,7 +69,9 @@ module.exports = {
       filename: "[name].[contenthash].css",
       chunkFilename: "[id].[contenthash].css",
     }),
-    new Dotenv(),
+    new Dotenv({
+      path: path.resolve(__dirname, ".env"),
+    }),
   ],
   performance: {
     hints: false,
