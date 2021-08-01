@@ -1,14 +1,16 @@
 const path = require("path");
-const Dotenv = require("dotenv-webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-
+const webpack = require("webpack");
 module.exports = {
   entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].[contenthash].js",
     clean: true,
+  },
+  node: {
+    fs: "empty",
   },
   mode: "production",
   optimization: {
@@ -69,8 +71,10 @@ module.exports = {
       filename: "[name].[contenthash].css",
       chunkFilename: "[id].[contenthash].css",
     }),
-    new Dotenv({
-      path: path.resolve(process.cwd(), ".env"),
+    new webpack.DefinePlugin({
+      "process.env": {
+        IPIFY_KEY: JSON.stringify(process.env.IPIFY_KEY),
+      },
     }),
   ],
   performance: {
