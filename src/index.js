@@ -1,3 +1,4 @@
+import './style.css';
 const api_key = String(process.env.IPIFY_KEY);
 const api_uri = "https://geo.ipify.org/api/";
 const bypass_cors_url = "https://cors-anywhere.herokuapp.com/";
@@ -55,7 +56,6 @@ getIPDetails = (default_ip) => {
       updateMarker([data.location.lat, data.location.lng]);
     })
     .catch((error) => {
-      alert("Unable to get IP details");
       console.log(error);
     });
 };

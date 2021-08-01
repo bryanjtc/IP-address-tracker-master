@@ -1,0 +1,37 @@
+{
+  "name": "ip-address-tracker-master",
+  "version": "1.0.0",
+  "description": "IP Address Tracker coding challenge",
+  "main": ".src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack webpack.config.prod.js",
+    "dev": "webpack serve --config webpack.config.dev.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bryan250000/IP-address-tracker-master.git"
+  },
+  "keywords": [],
+  "author": "Bryan <bryan.thomas25000@icloud.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bryan250000/IP-address-tracker-master/issues"
+  },
+  "homepage": "https://github.com/bryan250000/IP-address-tracker-master#readme",
+  "devDependencies": {
+    "@babel/core": "^7.14.8",
+    "@babel/preset-env": "^7.14.8",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^6.2.0",
+    "dotenv-webpack": "^7.0.3",
+    "html-loader": "^2.1.2",
+    "html-webpack-plugin": "^5.3.2",
+    "mini-css-extract-plugin": "^2.1.0",
+    "style-loader": "^3.2.1",
+    "webpack": "^5.47.1",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2",
+    "webpack-merge": "^5.8.0"
+  }
+}

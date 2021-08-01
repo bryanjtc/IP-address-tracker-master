@@ -1,0 +1,143 @@
+* {
+  font-family: "Rubik", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+*:focus {
+  outline: none;
+}
+
+.image {
+  width: 100%;
+  height: 35%;
+  position: absolute;
+  z-index: -1;
+}
+
+.title {
+  text-align: center;
+  color: white;
+  padding: 0.9375rem;
+  font-size: 1.875rem;
+  border-top: 5px transparent;
+  font-weight: 400;
+}
+
+#searchinput {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 0 30%;
+}
+
+.searchbox {
+  width: 100%;
+  margin-bottom: 6.25rem;
+}
+#search {
+  padding: 0.3125rem;
+  padding-left: 0.5vw;
+  border-style: solid;
+  border-width: 0.5rem;
+  border-color: white;
+  border-radius: 0.75rem;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  background-color: white;
+  height: 1.25rem;
+  color: hsl(0, 0%, 59%);
+  text-align: left;
+  display: inline-block;
+  font-size: 1.125rem;
+  width: 100%;
+}
+
+#search:hover {
+  box-shadow: 0 0 0.25;
+  opacity: 0.9;
+}
+
+#arrow {
+  padding: 0.46875rem;
+  border-style: solid;
+  border-width: 0.3125rem;
+  border-color: black;
+  border-radius: 0.75rem;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  background-color: black;
+}
+
+#arrow:hover {
+  box-shadow: 0 0 0.25rem rgba(3, 3, 3, 0.8);
+  opacity: 0.9;
+}
+
+.container {
+  height: 31.25rem;
+  position: relative;
+}
+
+.table {
+  position: absolute;
+  padding: 0.9375rem;
+  background-color: white;
+  border-style: solid;
+  border-width: 0.3125rem;
+  border-color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 10px -10px hsl(0, 0%, 59%);
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin: 0 10%;
+  justify-content: space-between;
+  z-index: 1;
+}
+
+.column-header {
+  padding: 0.3125rem;
+  padding-left: 2.5vw;
+  padding-right: 3vw;
+  text-align: left;
+  text-transform: uppercase;
+  font-size: 0.9375rem;
+  color: hsl(0, 0%, 59%);
+  font-weight: 500;
+}
+
+.column-cell {
+  padding: 0.3125rem;
+  padding-left: 2.5vw;
+  padding-right: 3vw;
+  font-size: 1.75vw;
+  font-weight: 700;
+  color: hsl(0, 0%, 17%);
+  text-align: left;
+  border-right-style: solid;
+  border-right-width: 0.125rem;
+  border-right-color: hsl(0, 0%, 59%);
+}
+
+#my_isp {
+  border-right-color: transparent;
+}
+
+#mapid {
+  height: 500px;
+}
+
+@media screen and (max-width: 26.625rem) {
+  .table {
+    flex-direction: column;
+  }
+
+  .column-cell {
+    border: none;
+  }
+
+  #searchinput {
+    margin: 0 10%;
+  }
+}
