@@ -33,7 +33,7 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: 'asset/resource',
+        type: "asset/resource",
       },
     ],
   },
@@ -46,7 +46,9 @@ module.exports = {
     new Dotenv(),
   ],
   devServer: {
-    contentBase: path.join(__dirname, "dist"),
+    static: {
+      directory: path.resolve(__dirname, "dist"),
+    },
     compress: true,
     historyApiFallback: true,
     port: 3005,
