@@ -1,8 +1,6 @@
-import "./style.css";
+import "styles/style.css";
 import config from "./config/index";
-import iconLocation from "./images/iconlocation.svg";
-import patternbg from "./images/patternbg.png";
-import iconArrow from "./images/iconarrow.svg";
+import iconLocation from "images/iconlocation.svg";
 const { api_key } = config;
 const api_uri = "https://geo.ipify.org/api/";
 const bypass_cors_url = "https://corsanywhere.herokuapp.com/";
@@ -14,9 +12,6 @@ let current_location = document.getElementById("my_location");
 let current_timeZone = document.getElementById("my_timezone");
 let current_isp = document.getElementById("my_isp");
 var entered_ip = document.getElementById("search");
-
-document.getElementById("top-image").src = patternbg;
-document.getElementById("arrow").src = iconArrow;
 
 var blackIcon = L.icon({
   iconUrl: iconLocation,

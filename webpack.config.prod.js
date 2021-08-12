@@ -5,9 +5,7 @@ const CopyPlugin = require("copy-webpack-plugin");
 const Dotenv = require("dotenv-webpack");
 
 module.exports = {
-  entry: "./src/index.js",
   output: {
-    path: path.resolve(__dirname, "dist"),
     filename: "[name].[contenthash].js",
     assetModuleFilename: "images/[hash][ext][query]",
     clean: true,
@@ -27,13 +25,16 @@ module.exports = {
     },
   },
   resolve: {
-    extensions: [".js"],
+    alias: {
+      "styles": path.resolve(__dirname, "src/styles/"),
+      "images": path.resolve(__dirname, "src/images/"),
+    },
   },
   module: {
     rules: [
       {
         test: /\.(js)$/,
-        exclude: /node_modules/,
+        include: path.resolve(__dirname, 'src'),
         use: {
           loader: "babel-loader",
         },
@@ -56,12 +57,12 @@ module.exports = {
         ],
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: "asset/resource",
+        test: /\.(png|svg|jpg|jpeg|gif|ico)$/i,
+        type: "asset",
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
-        type: "asset/resource",
+        type: "asset",
       },
     ],
   },
@@ -79,7 +80,7 @@ module.exports = {
     new CopyPlugin({
       patterns: [
         {
-          from: path.resolve(__dirname, "src", "images"),
+          from: path.resolve(__dirname, "src/images"),
           to: "images",
         },
       ],

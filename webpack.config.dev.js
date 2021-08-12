@@ -4,10 +4,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
-  entry: "./src/index.js",
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "main.js",
     clean: false,
   },
   mode: "development",
@@ -34,13 +31,20 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: "asset/resource",
+        type: "asset",
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
-        type: "asset/resource",
+        type: "asset",
       },
     ],
+  },
+  resolve: {
+    extensions: [".js"],
+    alias: {
+      styles: path.resolve(__dirname, "src/styles/"),
+      images: path.resolve(__dirname, "src/images/"),
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -51,17 +55,14 @@ module.exports = {
     new CopyPlugin({
       patterns: [
         {
-          from: path.resolve(__dirname, "src", "images"),
-          to: "images",
+          from: path.resolve(__dirname, "src/images"),
+          to: ".",
         },
       ],
     }),
     new Dotenv(),
   ],
   devServer: {
-    static: {
-      directory: path.resolve(__dirname, "dist"),
-    },
     compress: false,
     historyApiFallback: true,
     port: 3005,

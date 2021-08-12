@@ -1,6 +1,7 @@
 {
-    "short_name": "IP Address Tracker",
+    "short_name": "IP Tracker",
     "name": "IP Address Tracker master",
+    "description": "Track any ip address in the world",
     "icons": [
         {
             "src": "./favicon.ico",
