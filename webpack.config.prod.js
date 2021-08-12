@@ -1,12 +1,15 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const webpack = require("webpack");
+const CopyPlugin = require("copy-webpack-plugin");
+const Dotenv = require("dotenv-webpack");
+
 module.exports = {
   entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].[contenthash].js",
+    assetModuleFilename: "images/[hash][ext][query]",
     clean: true,
   },
   mode: "production",
@@ -56,6 +59,10 @@ module.exports = {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: "asset/resource",
       },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: "asset/resource",
+      },
     ],
   },
   plugins: [
@@ -63,20 +70,23 @@ module.exports = {
       title: "Caching",
       template: "./public/index.html",
       filename: "./index.html",
+      inject: true,
     }),
     new MiniCssExtractPlugin({
       filename: "[name].[contenthash].css",
       chunkFilename: "[id].[contenthash].css",
     }),
-    new webpack.DefinePlugin({
-      "process.env": {
-        IPIFY_KEY: JSON.stringify(process.env.IPIFY_KEY),
-      },
+    new CopyPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, "src", "images"),
+          to: "images",
+        },
+      ],
     }),
+    new Dotenv(),
   ],
-  performance: {
-    hints: false,
-    maxEntrypointSize: 512000,
-    maxAssetSize: 512000,
+  optimization: {
+    minimize: true,
   },
 };

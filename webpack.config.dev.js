@@ -1,6 +1,7 @@
 const path = require("path");
 const Dotenv = require("dotenv-webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.js",
@@ -29,10 +30,14 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [{ loader: "style-loader" }, { loader: "css-loader" }],
+        use: ["style-loader", "css-loader"],
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: "asset/resource",
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
         type: "asset/resource",
       },
     ],
@@ -43,13 +48,21 @@ module.exports = {
       template: "./public/index.html",
       filename: "./index.html",
     }),
+    new CopyPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, "src", "images"),
+          to: "images",
+        },
+      ],
+    }),
     new Dotenv(),
   ],
   devServer: {
     static: {
       directory: path.resolve(__dirname, "dist"),
     },
-    compress: true,
+    compress: false,
     historyApiFallback: true,
     port: 3005,
   },

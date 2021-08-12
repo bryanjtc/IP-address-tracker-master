@@ -1,7 +1,8 @@
 import "./style.css";
-import "../node_modules/leaflet/dist/leaflet.css"
 import config from "./config/index";
-import iconUrl from "./assets/icon-location.svg"
+import iconLocation from "./images/iconlocation.svg";
+import patternbg from "./images/patternbg.png";
+import iconArrow from "./images/iconarrow.svg";
 const { api_key } = config;
 const api_uri = "https://geo.ipify.org/api/";
 const bypass_cors_url = "https://corsanywhere.herokuapp.com/";
@@ -13,10 +14,12 @@ let current_location = document.getElementById("my_location");
 let current_timeZone = document.getElementById("my_timezone");
 let current_isp = document.getElementById("my_isp");
 var entered_ip = document.getElementById("search");
-var L = require('leaflet');
+
+document.getElementById("top-image").src = patternbg;
+document.getElementById("arrow").src = iconArrow;
 
 var blackIcon = L.icon({
-  iconUrl: iconUrl,
+  iconUrl: iconLocation,
 });
 
 const headers_option = {
