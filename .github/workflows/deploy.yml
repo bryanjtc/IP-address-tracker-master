@@ -8,7 +8,7 @@ jobs:
       - name: Create env file
         run: |
           touch .env
-          echo IPIFY_KEY=${{ secrets.IPIFY_KEY }} >> .env
+          echo REACT_APP_IPIFY_KEY=${{ secrets.IPIFY_KEY }} >> .env
           cat .env
       - name: Checkout Repo
         uses: actions/checkout@master
