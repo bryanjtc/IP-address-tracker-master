@@ -4,12 +4,9 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
+    env: 
+        REACT_APP_IPIFY_KEY: ${{secrets.IPIFY_KEY}}
     steps:
-      - name: Create env file
-        run: |
-          touch .env
-          echo REACT_APP_IPIFY_KEY=${{ secrets.IPIFY_KEY }} >> .env
-          cat .env
       - name: Checkout Repo
         uses: actions/checkout@master
       - name: Install Dependencies

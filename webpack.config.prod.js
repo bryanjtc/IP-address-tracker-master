@@ -85,7 +85,7 @@ module.exports = {
         },
       ],
     }),
-    new Dotenv(),
+    new Dotenv({ systemvars: true }),
   ],
   optimization: {
     minimize: true,
