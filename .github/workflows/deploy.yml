@@ -1,17 +1,15 @@
 name: deploy website
 on: [push]
 jobs:
-  create-env:
-    name: Create env file
-    run: |
-        touch .env
-        echo IPIFY_KEY=${{ secrets.IPIFY_KEY }} >> .env
-        cat .env
-    
   build:
     name: Build
     runs-on: ubuntu-latest
     steps:
+      - name: Create env file
+        run: |
+          touch .env
+          echo IPIFY_KEY=${{ secrets.IPIFY_KEY }} >> .env
+          cat .env
       - name: Checkout Repo
         uses: actions/checkout@master
       - name: Install Dependencies
