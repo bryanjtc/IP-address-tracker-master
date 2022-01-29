@@ -3,7 +3,6 @@ import config from "./config/index";
 import iconLocation from "images/iconlocation.svg";
 const { api_key } = config;
 const api_uri = "https://geo.ipify.org/api/";
-const bypass_cors_url = "https://corsanywhere.herokuapp.com/";
 let current_version = "v1";
 
 const form = document.getElementById("searchinput");
@@ -16,12 +15,6 @@ var entered_ip = document.getElementById("search");
 var blackIcon = L.icon({
   iconUrl: iconLocation,
 });
-
-const headers_option = {
-  headers: {
-    "Access-Control-Allow-Origin": "*",
-  },
-};
 
 const map = L.map("mapid", {
   center: [0, 0],
@@ -41,19 +34,19 @@ const updateMarker = (updateMarker = [50.5, 30.5]) => {
 
 const getIPDetails = (default_ip) => {
   if (default_ip == undefined) {
-    var ip_url = `${bypass_cors_url}${api_uri}${current_version}?apiKey=${api_key}`;
+    var ip_url = `${api_uri}${current_version}?apiKey=${api_key}`;
   } else {
     console.log(default_ip);
-    var ip_url = `${bypass_cors_url}${api_uri}${current_version}?apiKey=${api_key}&ipAddress=${default_ip}`;
+    var ip_url = `${api_uri}${current_version}?apiKey=${api_key}&ipAddress=${default_ip}`;
   }
 
-  fetch(ip_url, headers_option)
+  fetch(ip_url)
     .then((results) => results.json())
     .then((data) => {
-      current_ip.innerHTML = data.ip;
-      current_location.innerHTML = `${data.location.city} ${data.location.country} ${data.location.postalCode}`;
-      current_timeZone.innerHTML = "UTC " + data.location.timezone;
-      current_isp.innerHTML = data.isp;
+      current_ip.textContent = data.ip;
+      current_location.textContent = `${data.location.city} ${data.location.country} ${data.location.postalCode}`;
+      current_timeZone.textContent = "UTC " + data.location.timezone;
+      current_isp.textContent = data.isp;
 
       updateMarker([data.location.lat, data.location.lng]);
     })

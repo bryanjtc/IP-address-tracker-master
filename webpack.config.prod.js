@@ -13,6 +13,7 @@ module.exports = {
   mode: "production",
   optimization: {
     moduleIds: "deterministic",
+    minimize: true,
     runtimeChunk: "single",
     splitChunks: {
       cacheGroups: {
@@ -87,7 +88,4 @@ module.exports = {
     }),
     new Dotenv({ systemvars: true }),
   ],
-  optimization: {
-    minimize: true,
-  },
 };
