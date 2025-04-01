@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/bryan250000/IP-address-tracker-master#readme",
   "devDependencies": {
-    "@babel/core": "7.26.9",
+    "@babel/core": "7.26.10",
     "@babel/preset-env": "7.26.9",
     "babel-loader": "9.2.1",
     "copy-webpack-plugin": "12.0.2",
@@ -33,6 +33,6 @@
     "style-loader": "4.0.0",
     "webpack": "5.97.1",
     "webpack-cli": "6.0.1",
-    "webpack-dev-server": "5.2.0"
+    "webpack-dev-server": "5.2.1"
   }
 }
